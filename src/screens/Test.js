@@ -11,7 +11,7 @@ class Test extends React.Component {
       <>
         <button
           onClick={e => {
-            window.open("https://protex-gate.herokuapp.com/auth", "win", "width=800,height=600"); // a window object
+            window.open("https://protex-gate.herokuapp.com/auth", "win", "width=800,height=750"); // a window object
           }}
         >
           Open Link in Popup

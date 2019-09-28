@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default () => { 
   return (
@@ -40,7 +41,7 @@ export default () => {
             </div>
 
             <div className="gu__form__item -margin-top -to-center">
-              <button className="gu-button">Войти</button>
+              <Link className="gu-button" to="/certs">Войти</Link>
               <a href="https://esia.gosuslugi.ru/recovery" className="gu-link">Я не знаю пароль</a>
             </div>
 
