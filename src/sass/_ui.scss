@@ -1,0 +1,489 @@
+/* UI, сюда всякие кнопки, списки и т. п.
+=========================================================== */
+
+
+// Модальное окно
+.ui-popup {
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	padding: 40px 0;
+	overflow-y: auto;
+
+	&__logo {
+
+		position: absolute;
+		top: -1px;
+		right: -1px;
+		width: 188px;
+		height: 95px;
+		font-size: 0;
+		background: url(img/layout/header-left.svg) 0 0 no-repeat;
+		background-size: contain;
+
+		&::before {
+			display: block;
+			position: absolute;
+			content: ' ';
+			top: 38px;
+			right: 40px;
+			width: 117px;
+			height: 29px;
+			font-size: 0;
+			background: url(img/layout/logo-yellow.svg) 0 0 no-repeat;
+			background-size: contain;
+		}
+
+	}
+
+	&__inner {
+
+		position: relative;
+		width: 528px;
+		max-width: 100%;
+		margin: 0 auto;
+		padding: 40px;
+		border: 1px solid $light-gray;
+		border-radius: 5px;
+
+		&.-gosuslugi {
+			width: 448px;
+		}
+
+	}
+
+}
+
+
+// Ключ-значение
+.ui-kv {
+
+	display: inline-block;
+	vertical-align: top;
+	margin: 5px 10px 0 0;
+	font-size: 0;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	label,
+	span {
+		display: inline-block;
+		vertical-align: baseline;
+		font-size: $font-size;
+	}
+
+	label {
+		margin-right: 4px;
+		opacity: 0.3;
+	}
+
+}
+
+
+// Кнопка
+.ui-button {
+
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 46px;
+	font-weight: 500;
+	font-size: 16px;
+	color: $main-color;
+	background-color: transparent;
+	border: 1px solid $main-color;
+	border-radius: 3px;
+	transition: $tr;
+
+	&:hover {
+		cursor: pointer;
+		border-color: darken( $main-color, 15% );
+	}
+
+	&:active {
+		border-color: darken( $main-color, 30% );
+	}
+
+	&.-forward {
+
+		&::after {
+			display: inline-block;
+			content: ' ';
+			width: 16px;
+			height: 10px;
+			margin-left: 5px;
+			background: url(img/icons/arrow-right.svg) 0 0 no-repeat;
+			background-size: contain;
+		}
+
+	}
+
+}
+
+
+// Список электронных подписей
+.ui-list {
+
+}
+
+
+// Электронная подпись
+.ui-signature {
+
+	display: block;
+	position: relative;
+	width: 100%;
+	margin-top: 10px;
+	padding: 10px 37px 10px 12px;
+	text-align: left;
+	white-space: normal;
+	border: 1px solid $light-gray;
+	border-radius: 3px;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	input {
+
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 3;
+		cursor: pointer;
+
+		&:checked {
+			cursor: default;
+		}
+		
+		&:checked ~ .ui-signature__background {
+
+			background-color: $main-color;
+			border-color: $main-color;
+
+			&::after {
+				top: 50%;
+				width: 77px;
+				height: 77px;
+				margin-top: -39px;
+				background-image: url(img/icons/key.svg);
+			}
+
+		}
+
+		&:checked ~ .ui-signature__name,
+		&:checked ~ .ui-signature__info {
+			color: $white;
+		}
+		
+	}
+
+	&__background {
+		
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border-radius: 3px;
+		transition: $tr;
+		z-index: 1;
+
+		&::after {
+			display: block;
+			position: absolute;
+			content: ' ';
+			top: 8px;
+			right: 8px;
+			width: 17px;
+			height: 25px;
+			background: url(img/icons/lock.svg) 0 0 no-repeat;
+			background-size: contain;
+			transition: $tr;
+		}
+
+	}
+
+	&__name,
+	&__info {
+		display: block;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__name {
+		font-weight: bold;
+	}
+
+	&__info {
+		font-size: 0;
+	}
+
+	&:hover {
+		cursor: pointer;
+		border-color: $main-color;
+	}
+
+	&:active {
+		border-color: darken( $main-color, 15% );
+	}
+
+}
+
+
+// Карточка
+.ui-card {
+
+	&__main {
+
+		padding-right: 155px;
+		margin-bottom: 40px;
+
+		&__name {
+			margin-bottom: 15px;
+			font-weight: bold;
+			font-size: 20px;
+		}
+
+	}
+
+	&__what {
+
+		margin: 40px 0;
+		font-size: 0;
+
+		&__name,
+		&__from {
+			display: inline-block;
+			vertical-align: baseline;
+		}
+
+		&__name {
+			margin-right: 15px;
+			font-weight: bold;
+		}
+
+		&__from {
+			color: $gray;
+		}
+
+	}
+
+	&__action {
+		margin-bottom: 15px;
+	}
+
+	&__footer {
+		margin-top: 40px;
+		transition: $tr;
+	}
+
+	&__switcher {
+
+		width: 200%;
+		font-size: 0;
+
+		&__item {
+
+			display: inline-block;
+			vertical-align: top;
+			width: 50%;
+			white-space: nowrap;
+			transition: $tr;
+
+			&[data-id="list"]{
+				
+				.-show-qr & {
+
+					margin-left: -50%;
+					opacity: 0.5;
+					transform: scale(0.75);
+
+					.ui-card__footer {
+						visibility: hidden;
+						opacity: 0;
+					}
+
+				}
+
+				.-show-loader &,
+				.-show-success & {
+					visibility: hidden;
+					opacity: 0;
+				}
+
+			}
+
+			&[data-id="qr"]{
+				
+				max-height: 0;
+				visibility: hidden;
+				opacity: 0;
+
+				.-show-qr & {
+					max-height: 329px;
+					visibility: visible;
+					opacity: 1;
+				}
+
+				.-show-loader &,
+				.-show-success & {
+					visibility: hidden;
+					opacity: 0;
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+// QR
+.ui-qr {
+
+	height: 298px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	&.-confirm {
+		background-image: url(img/_temp/qr-confirm.svg);
+	}
+
+}
+
+
+// Лоадер
+.ui-loader {
+
+	display: block;
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	bottom: -1px;
+	left: -1px;
+	background-color: rgba(255,255,255,0.75);
+	visibility: hidden;
+	opacity: 0;
+	z-index: 5;
+	transition: $tr;
+
+	.-show-loader & {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.-show-success & {
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	&__indicator,
+	&__title,
+	&__subtitle {
+		position: absolute;
+		right: 0;
+		left: 0;
+	}
+
+	&__indicator {
+		top: 255px;
+		right: auto;
+		left: 50%;
+		width: 92px;
+		height: 92px;
+		margin-left: -46px;
+		border: 5px solid #555;
+		border-right-color: transparent;
+		border-bottom-color: transparent;
+		border-radius: 50%;
+		animation: circle 1s infinite linear;
+	}
+	@keyframes circle {
+		0% { transform:rotate(0deg); }
+		50% { transform:rotate(180deg); }
+		100% { transform:rotate(360deg); }
+	}
+
+	&__title,
+	&__subtitle {
+		color: #555;
+		text-align: center;
+	}
+
+	&__title {
+		top: 357px;
+		font-weight: bold;
+	}
+
+	&__subtitle {
+		top: 373px;
+	}
+
+}
+
+
+// Успех
+.ui-success {
+
+	display: block;
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	bottom: -1px;
+	left: -1px;
+	background-color: rgba(255,255,255,0.75);
+	visibility: hidden;
+	opacity: 0;
+	z-index: 5;
+	transition: $tr;
+
+	.-show-success & {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	&__indicator,
+	&__title,
+	&__subtitle {
+		position: absolute;
+		right: 0;
+		left: 0;
+	}
+
+	&__indicator {
+		top: 255px;
+		height: 92px;
+		background: url(img/icons/cloud-success.svg) center center no-repeat;
+		background-size: contain;
+	}
+
+	&__title,
+	&__subtitle {
+		color: $main-color;
+		text-align: center;
+	}
+
+	&__title {
+		top: 357px;
+		font-weight: bold;
+	}
+
+	&__subtitle {
+		top: 373px;
+	}
+
+}
