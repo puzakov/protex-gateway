@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import { Auth, CertsList, MobilePIN, MobileApproove } from "../../screens";
+import { Auth, CertsList, MobilePIN, MobileApproove, Test } from "../../screens";
 
 class App extends Component {
 
@@ -13,6 +13,7 @@ class App extends Component {
           <Route exact path="/certs" component={CertsList} />
           <Route exact path="/pin" component={MobilePIN} />
           <Route exact path="/approve" component={MobileApproove} />
+          <Route exact path="/test" component={Test} />
           <Redirect to="/auth" />
         </Switch>
       </BrowserRouter>
