@@ -143,7 +143,6 @@
 	padding: 10px 95px 10px 12px;
 	text-align: left;
 	white-space: normal;
-	border: 1px solid $light-gray;
 	border-radius: 3px;
 
 	&:first-child {
@@ -168,7 +167,7 @@
 		&:checked ~ .ui-signature__background {
 
 			background-color: $main-color;
-			border-color: $main-color;
+			border-color: darken( $main-color, 15% );
 
 			&::after {
 				top: 50%;
@@ -195,6 +194,7 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
+		border: 1px solid $light-gray;
 		border-radius: 3px;
 		transition: $tr;
 		z-index: 1;
@@ -230,12 +230,21 @@
 	}
 
 	&:hover {
+
 		cursor: pointer;
-		border-color: $main-color;
+
+		.ui-signature__background {
+			border-color: $main-color;
+		}
+
 	}
 
 	&:active {
-		border-color: darken( $main-color, 15% );
+
+		.ui-signature__background {
+			border-color: darken( $main-color, 15% );
+		}
+
 	}
 
 }
@@ -546,7 +555,7 @@
 		}
 
 		&::after {
-			right: 0;
+			right: -1px;
 			background-image: url(img/layout/header-right.svg);
 		}
 
@@ -596,6 +605,68 @@
 			bottom: 86px;
 		}
 
+		& ~ .ui-loader {
+
+			.ui-loader__indicator,
+			.ui-loader__title,
+			.ui-loader__subtitle {
+				top: 50%;
+			}
+
+			.ui-loader__indicator {
+				margin-top: -46px;
+			}
+
+			.ui-loader__title {
+				margin-top: 56px;
+			}
+
+			.ui-loader__subtitle {
+				margin-top: 72px;
+			}
+
+		}
+
+		&.-show-loader ~ .ui-loader {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		& ~ .ui-success {
+			top: 95px;
+			background-color: #fff;
+		}
+
+		&.-show-success ~ .ui-loader {
+			visibility: hidden;
+			opacity: 0;
+		}
+
+		&.-show-success ~ .ui-success {
+
+			visibility: visible;
+			opacity: 1;
+
+			.ui-success__indicator,
+			.ui-success__title,
+			.ui-success__subtitle {
+				top: 50%;
+			}
+
+			.ui-success__indicator {
+				margin-top: -46px;
+			}
+
+			.ui-success__title {
+				margin-top: 56px;
+			}
+
+			.ui-success__subtitle {
+				margin-top: 72px;
+			}
+
+		}
+
 	}
 
 	&__footer {
@@ -617,6 +688,7 @@
 			width: 42px;
 			background: url(img/icons/faceid.svg) center center no-repeat;
 			background-size: 42px 42px;
+			border: none;
 		}
 
 	}
@@ -633,10 +705,12 @@
 // PIN
 .ui-pin {
 
+	max-width: 340px;
+
 	&__title {
-
+		font-weight: normal;
+		font-size: 18px;
 		text-align: center;
-
 	}
 
 	&__progress {
@@ -650,7 +724,7 @@
 
 			width: 15px;
 			height: 15px;
-			border: 1px solid rgba(0,0,0,0.5);
+			border: 1px solid rgba(0,0,0,0.2);
 			border-radius: 50px;
 
 			&.-active {
@@ -675,7 +749,7 @@
 			height: 81px;
 			margin: 15px 15px 0;
 			background-color: transparent;
-			border: 1px solid rgba(0,0,0,0.5);
+			border: 1px solid rgba(0,0,0,0.2);
 			border-radius: 50%;
 			transition: 0.1s;
 
