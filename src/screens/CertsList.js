@@ -18,7 +18,7 @@ class CertsList extends Component {
               "https://uecolog-api.herokuapp.com/protex/status"
             );
             const result = await response.json();
-            if (result.step == 2) {
+            if (parseInt(result.step) === 2) {
               this.setState({ step: 3 });
               clearInterval(this.interval1);
             }
@@ -32,7 +32,7 @@ class CertsList extends Component {
                 "https://uecolog-api.herokuapp.com/protex/status"
               );
               const result = await response.json();
-              if (result.step == 3) {
+              if (parseInt(result.step) === 3) {
                 this.setState({ step: 4 });
                 clearInterval(this.interval2);
               }
