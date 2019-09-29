@@ -45,7 +45,7 @@ class MobilePIN extends Component {
               {[0, 1, 2, 3].map(item => {
                 const active = counter > item ? "-active" : "";
                 return (
-                  <div className={`ui-pin__progress__item ${active}`}></div>
+                  <div key={item} className={`ui-pin__progress__item ${active}`}></div>
                 );
               })}
             </div>
@@ -53,6 +53,7 @@ class MobilePIN extends Component {
               {buttons.map(({ digit, text }) => {
                 return (
                   <button
+                    key={digit}
                     className="ui-pin__keyboard__item"
                     onClick={() => {
                       this.setState({ counter: counter + 1 });

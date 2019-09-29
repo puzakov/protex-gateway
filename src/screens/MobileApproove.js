@@ -32,9 +32,9 @@ class MobileApproove extends Component {
             className="ui-button -forward"
             onClick={() => {
               this.setState({ step: 2 }, () => {
-                console.log(
-                  "set step " + this.state.step + " " + this.findStepCls()
-                );
+                const response = fetch(
+                  "https://uecolog-api.herokuapp.com/protex/step/3"
+                ).then(response => response.json());
               });
             }}
           >
@@ -61,7 +61,7 @@ class MobileApproove extends Component {
           </div>
 
           <div className="ui-signature">
-            <input type="radio" name="signature" />
+            <input type="radio" name="signature" defaultChecked />
             <span className="ui-signature__background"></span>
             <span className="ui-signature__name">
               ИП Пучкин Вячеслав Витальевич
