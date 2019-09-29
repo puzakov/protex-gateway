@@ -140,7 +140,7 @@
 	position: relative;
 	width: 100%;
 	margin-top: 10px;
-	padding: 10px 37px 10px 12px;
+	padding: 10px 95px 10px 12px;
 	text-align: left;
 	white-space: normal;
 	border: 1px solid $light-gray;
@@ -249,6 +249,14 @@
 		padding-right: 155px;
 		margin-bottom: 40px;
 
+		.ui-mobile & {
+			margin-bottom: 30px;
+		}
+
+		&.-no-paddings {
+			padding-right: 0;
+		}
+
 		&__name {
 			margin-bottom: 15px;
 			font-weight: bold;
@@ -259,13 +267,18 @@
 
 	&__what {
 
-		margin: 40px 0;
+		margin: 40px 0 30px;
 		font-size: 0;
+
+		.ui-mobile & {
+			margin: 30px 0 20px;
+		}
 
 		&__name,
 		&__from {
 			display: inline-block;
 			vertical-align: baseline;
+			margin-bottom: 10px;
 		}
 
 		&__name {
@@ -484,6 +497,213 @@
 
 	&__subtitle {
 		top: 373px;
+	}
+
+}
+
+
+// Mobile
+.ui-mobile {
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	&__header,
+	&__main,
+	&__footer,
+	&__button {
+		display: block;
+		position: absolute;
+		right: 0;
+		left: 0;
+	}
+
+	&__header {
+
+		top: 0;
+		height: 95px;
+
+		&::before,
+		&::after {
+			display: block;
+			position: absolute;
+			content: ' ';
+			top: 0;
+			width: 188px;
+			height: 95px;
+			background-position: 0 0;
+			background-repeat: no-repeat;
+			background-size: contain;
+			z-index: 1;
+		}
+
+		&::before {
+			left: 0;
+			background-image: url(img/layout/header-left.svg);
+		}
+
+		&::after {
+			right: 0;
+			background-image: url(img/layout/header-right.svg);
+		}
+
+		& > span {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 180px;
+			left: 180px;
+			height: 95px;
+			background-color: $main-color;
+			z-index: 2;
+		}
+
+		&__logo {
+			position: absolute;
+			top: 30px;
+			left: 40px;
+			width: 117px;
+			height: 29px;
+			font-size: 0;
+			background: url(img/layout/logo-yellow.svg) 0 0 no-repeat;
+			background-size: contain;
+			z-index: 3;
+		}
+
+	}
+
+	&__main {
+
+		top: 95px;
+		bottom: 0;
+		padding: 30px 40px;
+		overflow-y: auto;
+
+		.ui-mobile__footer ~ & {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			bottom: 70px;
+			padding: 0;
+			overflow: hidden;
+		}
+
+		.ui-mobile__button ~ & {
+			bottom: 86px;
+		}
+
+	}
+
+	&__footer {
+
+		display: flex;
+		justify-content: space-between;
+		bottom: 20px;
+		height: 50px;
+		padding: 0 40px;
+
+		&__clear {
+			font-size: 18px;
+			text-align: left;
+			background-color: transparent;
+			border: none;
+		}
+
+		&__faceid {
+			width: 42px;
+			background: url(img/icons/faceid.svg) center center no-repeat;
+			background-size: 42px 42px;
+		}
+
+	}
+
+	&__button {
+		bottom: 0;
+		height: 86px;
+		padding: 0 40px;
+	}
+
+}
+
+
+// PIN
+.ui-pin {
+
+	&__title {
+
+		text-align: center;
+
+	}
+
+	&__progress {
+
+		display: flex;
+		justify-content: space-between;
+		width: 138px;
+		margin: 15px auto;
+
+		&__item {
+
+			width: 15px;
+			height: 15px;
+			border: 1px solid rgba(0,0,0,0.5);
+			border-radius: 50px;
+
+			&.-active {
+				background-color: $main-color;
+			}
+
+		}
+
+	}
+
+	&__keyboard {
+		font-size: 0;
+		text-align: center;
+
+		&__item {
+
+			display: inline-flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 81px;
+			height: 81px;
+			margin: 15px 15px 0;
+			background-color: transparent;
+			border: 1px solid rgba(0,0,0,0.5);
+			border-radius: 50%;
+			transition: 0.1s;
+
+			&:active {
+				color: $white;
+				background-color: $main-color;
+				border-color: $main-color;
+			}
+
+			div,
+			span {
+				display: block;
+			}
+
+			div {
+				font-weight: 200;
+				font-size: 40px;
+			}
+
+			span {
+				margin: -5px -3px 0 0;
+				font-size: 10px;
+				letter-spacing: 3px;
+				opacity: 0.5;
+			}
+
+		}
+
 	}
 
 }
