@@ -78,6 +78,21 @@ class MobileApproove extends Component {
             </span>
           </div>
         </div>
+        <div className="ui-loader ui-main__loader">
+          <div className="ui-loader__indicator"></div>
+          <div className="ui-loader__title">Обработка запроса</div>
+          <div className="ui-loader__subtitle">
+            Запрос в Удостоверяющий Центр...
+          </div>
+        </div>
+
+        <div className="ui-success ui-main__success">
+          <div className="ui-success__indicator"></div>
+          <div className="ui-success__title">Операция подтверждена</div>
+          <div className="ui-success__subtitle">
+            Документов на подпись не найдено
+          </div>
+        </div>
       </div>
     );
   }
