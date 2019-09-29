@@ -9,14 +9,19 @@ class Test extends React.Component {
   render() {
     return (
       <>
-        <button
-          onClick={e => {
-            window.open("https://protex-gate.herokuapp.com/auth", "win", "width=800,height=750"); // a window object
-          }}
-        >
-          Open Link in Popup
-        </button>
-        <span>{this.state.text}</span>
+        <div className="ui-test">
+          <div className="ui-test__inner">
+            <button
+              className="ui-test__button"
+              onClick={e => {
+                window.open("https://protex-gate.herokuapp.com/auth", "win", "width=800,height=750"); // a window object
+              }}
+            >
+              Подписать с использованием Протекс
+            </button>
+            <span>{this.state.text}</span>
+          </div>
+        </div>
       </>
     );
   }
