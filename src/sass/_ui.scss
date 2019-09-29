@@ -793,6 +793,7 @@
 	background-size: 1920px 1862px;
 
 	&__inner {
+		position: relative;
 		width: 960px;
 		height: 100%;
 		margin: 0 auto;
@@ -803,8 +804,8 @@
 		display: block;
 		position: absolute;
 		top: 1539px;
-		left: 441px;
-		height: 33px;
+		left: 259px;
+		height: 32px;
 		padding: 0 12px;
 		color: #fff;
 		background-color: #36C185;
